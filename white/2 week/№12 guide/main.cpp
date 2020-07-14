@@ -1,37 +1,37 @@
-//Реализуйте справочник столиц стран.
+//Р РµР°Р»РёР·СѓР№С‚Рµ СЃРїСЂР°РІРѕС‡РЅРёРє СЃС‚РѕР»РёС† СЃС‚СЂР°РЅ.
 //
-//На вход программе поступают следующие запросы :
-//CHANGE_CAPITAL country new_capital — изменение столицы страны country на new_capital, либо добавление такой страны с такой столицей, если раньше её не было.
-//RENAME old_country_name new_country_name — переименование страны из old_country_name в new_country_name.
-//ABOUT country — вывод столицы страны country.
-//DUMP — вывод столиц всех стран.
+//РќР° РІС…РѕРґ РїСЂРѕРіСЂР°РјРјРµ РїРѕСЃС‚СѓРїР°СЋС‚ СЃР»РµРґСѓСЋС‰РёРµ Р·Р°РїСЂРѕСЃС‹ :
+//CHANGE_CAPITAL country new_capital вЂ” РёР·РјРµРЅРµРЅРёРµ СЃС‚РѕР»РёС†С‹ СЃС‚СЂР°РЅС‹ country РЅР° new_capital, Р»РёР±Рѕ РґРѕР±Р°РІР»РµРЅРёРµ С‚Р°РєРѕР№ СЃС‚СЂР°РЅС‹ СЃ С‚Р°РєРѕР№ СЃС‚РѕР»РёС†РµР№, РµСЃР»Рё СЂР°РЅСЊС€Рµ РµС‘ РЅРµ Р±С‹Р»Рѕ.
+//RENAME old_country_name new_country_name вЂ” РїРµСЂРµРёРјРµРЅРѕРІР°РЅРёРµ СЃС‚СЂР°РЅС‹ РёР· old_country_name РІ new_country_name.
+//ABOUT country вЂ” РІС‹РІРѕРґ СЃС‚РѕР»РёС†С‹ СЃС‚СЂР°РЅС‹ country.
+//DUMP вЂ” РІС‹РІРѕРґ СЃС‚РѕР»РёС† РІСЃРµС… СЃС‚СЂР°РЅ.
 //
-//Формат ввода:
-//В первой строке содержится количество запросов Q, в следующих Q строках — описания запросов.Все названия стран и столиц состоят лишь из латинских букв, цифр и символов подчёркивания.
+//Р¤РѕСЂРјР°С‚ РІРІРѕРґР°:
+//Р’ РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРµ СЃРѕРґРµСЂР¶РёС‚СЃСЏ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїСЂРѕСЃРѕРІ Q, РІ СЃР»РµРґСѓСЋС‰РёС… Q СЃС‚СЂРѕРєР°С… вЂ” РѕРїРёСЃР°РЅРёСЏ Р·Р°РїСЂРѕСЃРѕРІ.Р’СЃРµ РЅР°Р·РІР°РЅРёСЏ СЃС‚СЂР°РЅ Рё СЃС‚РѕР»РёС† СЃРѕСЃС‚РѕСЏС‚ Р»РёС€СЊ РёР· Р»Р°С‚РёРЅСЃРєРёС… Р±СѓРєРІ, С†РёС„СЂ Рё СЃРёРјРІРѕР»РѕРІ РїРѕРґС‡С‘СЂРєРёРІР°РЅРёСЏ.
 //
-//Формат вывода:
-//Выведите результат обработки каждого запроса :
+//Р¤РѕСЂРјР°С‚ РІС‹РІРѕРґР°:
+//Р’С‹РІРµРґРёС‚Рµ СЂРµР·СѓР»СЊС‚Р°С‚ РѕР±СЂР°Р±РѕС‚РєРё РєР°Р¶РґРѕРіРѕ Р·Р°РїСЂРѕСЃР° :
 //
-//В ответ на запрос CHANGE_CAPITAL country new_capital выведите:
-//Introduce new country country with capital new_capital, если страны country раньше не существовало;
-//Country country hasn't changed its capital, если страна country до текущего момента имела столицу new_capital;
-//Country country has changed its capital from old_capital to new_capital, если страна country до текущего момента имела столицу old_capital, название которой не совпадает с названием new_capital.
+//Р’ РѕС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ CHANGE_CAPITAL country new_capital РІС‹РІРµРґРёС‚Рµ:
+//Introduce new country country with capital new_capital, РµСЃР»Рё СЃС‚СЂР°РЅС‹ country СЂР°РЅСЊС€Рµ РЅРµ СЃСѓС‰РµСЃС‚РІРѕРІР°Р»Рѕ;
+//Country country hasn't changed its capital, РµСЃР»Рё СЃС‚СЂР°РЅР° country РґРѕ С‚РµРєСѓС‰РµРіРѕ РјРѕРјРµРЅС‚Р° РёРјРµР»Р° СЃС‚РѕР»РёС†Сѓ new_capital;
+//Country country has changed its capital from old_capital to new_capital, РµСЃР»Рё СЃС‚СЂР°РЅР° country РґРѕ С‚РµРєСѓС‰РµРіРѕ РјРѕРјРµРЅС‚Р° РёРјРµР»Р° СЃС‚РѕР»РёС†Сѓ old_capital, РЅР°Р·РІР°РЅРёРµ РєРѕС‚РѕСЂРѕР№ РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃ РЅР°Р·РІР°РЅРёРµРј new_capital.
 //
-//В ответ на запрос RENAME old_country_name new_country_name выведите:
-//Incorrect rename, skip, если новое название страны совпадает со старым, страна old_country_name не существует или страна new_country_name уже существует;
-//Country old_country_name with capital capital has been renamed to new_country_name, если запрос корректен и страна имеет столицу capital.
+//Р’ РѕС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ RENAME old_country_name new_country_name РІС‹РІРµРґРёС‚Рµ:
+//Incorrect rename, skip, РµСЃР»Рё РЅРѕРІРѕРµ РЅР°Р·РІР°РЅРёРµ СЃС‚СЂР°РЅС‹ СЃРѕРІРїР°РґР°РµС‚ СЃРѕ СЃС‚Р°СЂС‹Рј, СЃС‚СЂР°РЅР° old_country_name РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РёР»Рё СЃС‚СЂР°РЅР° new_country_name СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚;
+//Country old_country_name with capital capital has been renamed to new_country_name, РµСЃР»Рё Р·Р°РїСЂРѕСЃ РєРѕСЂСЂРµРєС‚РµРЅ Рё СЃС‚СЂР°РЅР° РёРјРµРµС‚ СЃС‚РѕР»РёС†Сѓ capital.
 //
-//В ответ на запрос ABOUT country выведите:
-//Country country doesn't exist, если страны с названием country не существует;
-//Country country has capital capital, если страна country существует и имеет столицу capital.
+//Р’ РѕС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ ABOUT country РІС‹РІРµРґРёС‚Рµ:
+//Country country doesn't exist, РµСЃР»Рё СЃС‚СЂР°РЅС‹ СЃ РЅР°Р·РІР°РЅРёРµРј country РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚;
+//Country country has capital capital, РµСЃР»Рё СЃС‚СЂР°РЅР° country СЃСѓС‰РµСЃС‚РІСѓРµС‚ Рё РёРјРµРµС‚ СЃС‚РѕР»РёС†Сѓ capital.
 //
-//В ответ на запрос DUMP выведите:
-//There are no countries in the world, если пока не было добавлено ни одной страны;
-//последовательность пар вида country / capital, описывающую столицы всех стран, если в мире уже есть хотя бы одна страна.
-//При выводе последовательности пары указанного вида необходимо упорядочить по названию страны и разделять между собой пробелом.
+//Р’ РѕС‚РІРµС‚ РЅР° Р·Р°РїСЂРѕСЃ DUMP РІС‹РІРµРґРёС‚Рµ:
+//There are no countries in the world, РµСЃР»Рё РїРѕРєР° РЅРµ Р±С‹Р»Рѕ РґРѕР±Р°РІР»РµРЅРѕ РЅРё РѕРґРЅРѕР№ СЃС‚СЂР°РЅС‹;
+//РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РїР°СЂ РІРёРґР° country / capital, РѕРїРёСЃС‹РІР°СЋС‰СѓСЋ СЃС‚РѕР»РёС†С‹ РІСЃРµС… СЃС‚СЂР°РЅ, РµСЃР»Рё РІ РјРёСЂРµ СѓР¶Рµ РµСЃС‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРЅР° СЃС‚СЂР°РЅР°.
+//РџСЂРё РІС‹РІРѕРґРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РїР°СЂС‹ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РІРёРґР° РЅРµРѕР±С…РѕРґРёРјРѕ СѓРїРѕСЂСЏРґРѕС‡РёС‚СЊ РїРѕ РЅР°Р·РІР°РЅРёСЋ СЃС‚СЂР°РЅС‹ Рё СЂР°Р·РґРµР»СЏС‚СЊ РјРµР¶РґСѓ СЃРѕР±РѕР№ РїСЂРѕР±РµР»РѕРј.
 //
-//Пример 1:
-//Ввод
+//РџСЂРёРјРµСЂ 1:
+//Р’РІРѕРґ
 //6
 //CHANGE_CAPITAL RussianEmpire Petrograd
 //RENAME RussianEmpire RussianRepublic
@@ -40,7 +40,7 @@
 //CHANGE_CAPITAL USSR Moscow
 //DUMP
 //
-//Вывод
+//Р’С‹РІРѕРґ
 //Introduce new country RussianEmpire with capital Petrograd
 //Country RussianEmpire with capital Petrograd has been renamed to RussianRepublic
 //Country RussianRepublic has capital Petrograd
@@ -48,8 +48,8 @@
 //Country USSR has changed its capital from Petrograd to Moscow
 //USSR / Moscow
 //
-//Пример 2:
-//Ввод
+//РџСЂРёРјРµСЂ 2:
+//Р’РІРѕРґ
 //24
 //RENAME FakeCountry FarFarAway
 //ABOUT FarFarAway
@@ -76,7 +76,7 @@
 //DUMP
 //RENAME USSR USSR
 //
-//Вывод
+//Р’С‹РІРѕРґ
 //Incorrect rename, skip
 //Country FarFarAway doesn't exist
 //There are no countries in the world
@@ -102,8 +102,8 @@
 //FederativeRepublicOfBrazil / Brasilia USSR / Moscow
 //Incorrect rename, skip
 //
-//Пример 3:
-//Ввод
+//РџСЂРёРјРµСЂ 3:
+//Р’РІРѕРґ
 //10
 //CHANGE_CAPITAL RussianEmpire Petrograd
 //RENAME USSR RussianEmpire
@@ -116,7 +116,7 @@
 //RENAME RussianEmpire UnitedStatesOfBrazil
 //DUMP
 //
-//Вывод
+//Р’С‹РІРѕРґ
 //Introduce new country RussianEmpire with capital Petrograd
 //Incorrect rename, skip
 //RussianEmpire / Petrograd
