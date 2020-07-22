@@ -85,6 +85,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 week", "4 week", "{C2D586
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№1 struct LectureTitle", "white\4 week\№1 struct LectureTitle\№1 struct LectureTitle.vcxproj", "{D55F414A-F8DE-4778-8E24-46B1293332BD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№2 reverse function", "white\4 week\№2 reverse function\№2 reverse function.vcxproj", "{7C3BC523-E36D-4641-B6A9-17CE47904DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -381,6 +383,14 @@ Global
 		{D55F414A-F8DE-4778-8E24-46B1293332BD}.Release|x64.Build.0 = Release|x64
 		{D55F414A-F8DE-4778-8E24-46B1293332BD}.Release|x86.ActiveCfg = Release|Win32
 		{D55F414A-F8DE-4778-8E24-46B1293332BD}.Release|x86.Build.0 = Release|Win32
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Debug|x64.ActiveCfg = Debug|x64
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Debug|x64.Build.0 = Debug|x64
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Debug|x86.Build.0 = Debug|Win32
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Release|x64.ActiveCfg = Release|x64
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Release|x64.Build.0 = Release|x64
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Release|x86.ActiveCfg = Release|Win32
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -426,6 +436,7 @@ Global
 		{C17E7D22-A753-4DF2-95B0-BF9A6F3FF0AC} = {32A9948B-09A2-4DEF-8CF2-D54D4E267AE6}
 		{C2D5862D-C6D6-451A-B9EE-52E7DA02F890} = {DF37F64C-27BD-4F73-B72E-7651484EA3D7}
 		{D55F414A-F8DE-4778-8E24-46B1293332BD} = {C2D5862D-C6D6-451A-B9EE-52E7DA02F890}
+		{7C3BC523-E36D-4641-B6A9-17CE47904DBE} = {C2D5862D-C6D6-451A-B9EE-52E7DA02F890}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A8F1CB-7E1D-4C00-813F-5E207BF68C9B}
