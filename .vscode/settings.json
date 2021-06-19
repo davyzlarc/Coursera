@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "fstream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "iosfwd": "cpp"
     }
 }
