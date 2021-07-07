@@ -1,7 +1,9 @@
 #include <iostream>
 #include <set>
 #include <map>
+#include <string>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,27 +45,107 @@ private:
     int Year;
 };
 
-bool operator<(const Date &lhs, const Date &rhs);
+bool operator<(const Date &lhs, const Date &rhs)
+{
+    if (lhs.GetYear() != rhs.GetYear())
+        return lhs.GetYear() < rhs.GetYear();
+    else
+    {
+        if (lhs.GetMonth() != rhs.GetMonth())
+            return lhs.GetMonth() < rhs.GetMonth();
+        else
+            return lhs.GetDay() < rhs.GetDay();
+    }
+}
 
+// База данных событий
 class Database
 {
 public:
-    void AddEvent(const Date &date, const string &event);
-    bool DeleteEvent(const Date &date, const string &event);
-    int DeleteDate(const Date &date);
+    // Добавление события - event в дату - date
+    void AddEvent(const Date &date, const string &event)
+    {
+        tuple[date].insert(event);
+    }
 
-    /* type (not void) */ void Find(const Date &date) const;
+    // Удаление события - event в дату - date.
+    // Return value: true - "Deleted successfully", false - "Event not found"
+    bool DeleteEvent(const Date &date, const string &event)
+    {
+        if (tuple.contains(date) && tuple.at(date).contains(event))
+        {
+            if (tuple.at(date).size() > 1)
+                tuple.at(date).erase(event);
+            else
+                DeleteDate(date);
+            return true;
+        }
+        else
+            return false;
+    }
 
-    void Print() const;
+    // Удаление даты - date и всех событий в эту дату.
+    // Return value: N>=0 - "Deleted N events",
+    int DeleteDate(const Date &date)
+    {
+        if (tuple.contains(date))
+        {
+            int num = tuple.at(date).size();
+            tuple.erase(date);
+            return num;
+        }
+        else
+            return 0;
+    }
+
+    // Поиск собыйтий в указанную дату - date
+    // Return value: set<string> events, empty set<string>
+    set<string> Find(const Date &date) const
+    {
+        if (tuple.contains(date))
+            return tuple.at(date);
+        else
+            return set<string>();
+    }
+
+    // Вывод всех дат - date и соответствующих им событий - event
+    void Print() const
+    {
+        for (const auto &[key, value] : tuple)
+        {
+            for (const auto &item : value)
+                cout << setw(4) << setfill('0') << key.GetYear() << "-"
+                     << key.GetMonth() << "-"
+                     << key.GetDay() << " "
+                     << item << endl;
+        }
+    }
 
 private:
+    // Кортёж дата-события
     map<Date, set<string>> tuple;
 };
 
 int main()
 {
     Database db;
-   
+    // db.AddEvent(Date("10-10-10"), "qq");
+    // db.AddEvent(Date("10-10-10"), "qw");
+    // db.AddEvent(Date("10-10-10"), "фq");
+    // db.AddEvent(Date("0-10-10"), "qq");
+    // db.AddEvent(Date("1-10-10"), "ф");
+    // db.AddEvent(Date("1-10-10"), "аа");
+    // db.AddEvent(Date("10-0-10"), "и");
+    // db.AddEvent(Date("10-10-10"), "с");
+    // db.AddEvent(Date("10-10-10"), "н");
+    // db.Print();
+    // cout << endl;
+    // db.DeleteEvent(Date("10-10-10"), "qe");
+    // db.DeleteEvent(Date("10-5-10"), "qe");
+    // db.DeleteEvent(Date("10-10-10"), "qw");
+    // db.DeleteEvent(Date("10-10-10"), "qq");
+    // db.Print(); 
+    
     // try{
     // Date d("");
     // }
@@ -79,4 +161,4 @@ int main()
     }
 
     return 0;
-} 
+}
