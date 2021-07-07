@@ -24,9 +24,18 @@ public:
         }
     }
 
-    int GetYear() const;
-    int GetMonth() const;
-    int GetDay() const;
+    int GetYear() const
+    {
+        return Year;
+    }
+    int GetMonth() const
+    {
+        return Month;
+    }
+    int GetDay() const
+    {
+        return Day;
+    }
 
 private:
     int Day;
@@ -55,13 +64,13 @@ int main()
 {
     Database db;
    
-    try{
-    Date d("");
-    }
-    catch(exception &ex)
-    {
-        cout << ex.what();
-    }
+    // try{
+    // Date d("");
+    // }
+    // catch(exception &ex)
+    // {
+    //     cout << ex.what();
+    // }
 
     string command;
     while (getline(cin, command))
