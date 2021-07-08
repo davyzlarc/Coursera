@@ -69,26 +69,26 @@ public:
     }
 
     // Удаление события - event в дату - date.
-    // Return value: true - "Deleted successfully", false - "Event not found"
-    bool DeleteEvent(const Date &date, const string &event)
+    // Return value: "Deleted successfully", "Event not found"
+    string DeleteEvent(const Date &date, const string &event)
     {
-        if (tuple.contains(date) && tuple.at(date).contains(event))
+        if (tuple.count(date) != 0 && tuple.at(date).count(event) != 0)
         {
             if (tuple.at(date).size() > 1)
                 tuple.at(date).erase(event);
             else
                 DeleteDate(date);
-            return true;
+            return "Deleted successfully";
         }
         else
-            return false;
+            return "Event not found";
     }
 
     // Удаление даты - date и всех событий в эту дату.
-    // Return value: N>=0 - "Deleted N events",
+    // Return value: N>=0
     int DeleteDate(const Date &date)
     {
-        if (tuple.contains(date))
+        if (tuple.count(date) != 0)
         {
             int num = tuple.at(date).size();
             tuple.erase(date);
@@ -102,7 +102,7 @@ public:
     // Return value: set<string> events, empty set<string>
     set<string> Find(const Date &date) const
     {
-        if (tuple.contains(date))
+        if (tuple.count(date) != 0)
             return tuple.at(date);
         else
             return set<string>();
@@ -115,8 +115,8 @@ public:
         {
             for (const auto &item : value)
                 cout << setw(4) << setfill('0') << key.GetYear() << "-"
-                     << key.GetMonth() << "-"
-                     << key.GetDay() << " "
+                     << setw(2) << setfill('0') << key.GetMonth() << "-"
+                     << setw(2) << setfill('0') << key.GetDay() << " "
                      << item << endl;
         }
     }
@@ -129,35 +129,54 @@ private:
 int main()
 {
     Database db;
-    // db.AddEvent(Date("10-10-10"), "qq");
-    // db.AddEvent(Date("10-10-10"), "qw");
-    // db.AddEvent(Date("10-10-10"), "фq");
-    // db.AddEvent(Date("0-10-10"), "qq");
-    // db.AddEvent(Date("1-10-10"), "ф");
-    // db.AddEvent(Date("1-10-10"), "аа");
-    // db.AddEvent(Date("10-0-10"), "и");
-    // db.AddEvent(Date("10-10-10"), "с");
-    // db.AddEvent(Date("10-10-10"), "н");
-    // db.Print();
-    // cout << endl;
-    // db.DeleteEvent(Date("10-10-10"), "qe");
-    // db.DeleteEvent(Date("10-5-10"), "qe");
-    // db.DeleteEvent(Date("10-10-10"), "qw");
-    // db.DeleteEvent(Date("10-10-10"), "qq");
-    // db.Print(); 
-    
-    // try{
-    // Date d("");
-    // }
-    // catch(exception &ex)
-    // {
-    //     cout << ex.what();
-    // }
+    stringstream output;
 
-    string command;
-    while (getline(cin, command))
+    try
     {
-        // ...
+        string command;
+        while (getline(cin, command))
+        {
+            stringstream ss;
+            ss << command;
+
+            string operation;
+            ss >> operation;
+            if (operation == "Add")
+            {
+                string date, event;
+                ss >> date >> event;
+
+                db.AddEvent(Date(date), event);
+            }
+            else if (operation == "Del")
+            {
+                string date, event;
+                ss >> date;
+
+                if (ss >> event)
+                    cout << db.DeleteEvent(Date(date), event) << endl;
+                else
+                    cout << "Deleted " << db.DeleteDate(Date(date)) << " events" << endl;
+            }
+            else if (operation == "Find")
+            {
+                string date;
+                ss >> date;
+
+                for (const auto &item : db.Find(date))
+                    cout << item << endl;
+            }
+            else if (operation == "Print")
+            {
+                db.Print();
+            }
+            else if (operation != "")
+                throw runtime_error("Unknown command: " + operation);
+        }
+    }
+    catch (exception &ex)
+    {
+        cout << ex.what() << endl;
     }
 
     return 0;
