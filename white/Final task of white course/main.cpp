@@ -99,7 +99,7 @@ public:
     }
 
     // Поиск собыйтий в указанную дату - date
-    // Return value: set<string> events, empty set<string>
+    // Return value: set<string> events
     set<string> Find(const Date &date) const
     {
         if (tuple.count(date) != 0)
