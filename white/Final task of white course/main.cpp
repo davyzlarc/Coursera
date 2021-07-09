@@ -15,11 +15,11 @@ public:
         stringstream ss;
         ss << s;
         char ch;
-        if (!(ss >> Year and ss >> ch and ch == '-' and ss >> Month and ss >> ch and ch == '-' and ss >> Day))
+        if (!(ss >> Year and ss >> ch and ch == '-' and ss >> Month and ss >> ch and ch == '-' and ss >> Day and ss.eof()))
             throw invalid_argument("Wrong date format: " + s);
         else
         {
-            if (!(Month >= 0 and Month <= 12))
+            if (!(Month >= 1 and Month <= 12))
                 throw invalid_argument("Month value is invalid: " + to_string(Month));
             else if (!(Day >= 1 and Day <= 31))
                 throw invalid_argument("Day value is invalid: " + to_string(Day));
@@ -58,6 +58,14 @@ bool operator<(const Date &lhs, const Date &rhs)
     }
 }
 
+ostream &operator<<(ostream &stream, const Date &date)
+{
+    stream << setw(4) << setfill('0') << date.GetYear() << "-"
+           << setw(2) << setfill('0') << date.GetMonth() << "-"
+           << setw(2) << setfill('0') << date.GetDay();
+    return stream;
+}
+
 // База данных событий
 class Database
 {
@@ -90,7 +98,7 @@ public:
     {
         if (tuple.count(date) != 0)
         {
-            int num = tuple.at(date).size();
+            const int num = tuple.at(date).size();
             tuple.erase(date);
             return num;
         }
@@ -114,10 +122,7 @@ public:
         for (const auto &[key, value] : tuple)
         {
             for (const auto &item : value)
-                cout << setw(4) << setfill('0') << key.GetYear() << "-"
-                     << setw(2) << setfill('0') << key.GetMonth() << "-"
-                     << setw(2) << setfill('0') << key.GetDay() << " "
-                     << item << endl;
+                cout << key << " " << item << endl;
         }
     }
 
@@ -156,8 +161,10 @@ int main()
                 if (ss >> event)
                     cout << db.DeleteEvent(Date(date), event) << endl;
                 else
-                    cout << "Deleted " << db.DeleteDate(Date(date)) << " events" << endl;
-            }
+                {
+                    const int events_num=db.DeleteDate(Date(date));
+                    cout << "Deleted " << events_num << " events" << endl;
+            }}
             else if (operation == "Find")
             {
                 string date;
