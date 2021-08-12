@@ -115,6 +115,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 week", "1 week", "{8361FB
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№1 matrix sum", "yellow\1 week\№1 matrix sum\№1 matrix sum.vcxproj", "{D138F9D0-9A9D-4541-A3C2-7E8E98C24683}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№2 average temperature", "yellow\1 week\№2 average temperature\№2 average temperature.vcxproj", "{438668FB-3A67-4D06-A9DB-D7338158EB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -515,6 +517,14 @@ Global
 		{D138F9D0-9A9D-4541-A3C2-7E8E98C24683}.Release|x64.Build.0 = Release|x64
 		{D138F9D0-9A9D-4541-A3C2-7E8E98C24683}.Release|x86.ActiveCfg = Release|Win32
 		{D138F9D0-9A9D-4541-A3C2-7E8E98C24683}.Release|x86.Build.0 = Release|Win32
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Debug|x64.ActiveCfg = Debug|x64
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Debug|x64.Build.0 = Debug|x64
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Debug|x86.ActiveCfg = Debug|Win32
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Debug|x86.Build.0 = Debug|Win32
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Release|x64.ActiveCfg = Release|x64
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Release|x64.Build.0 = Release|x64
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Release|x86.ActiveCfg = Release|Win32
+		{438668FB-3A67-4D06-A9DB-D7338158EB07}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -574,6 +584,7 @@ Global
 		{9FDE874E-2DAA-4351-92D1-9F69CAD4B9E2} = {DF37F64C-27BD-4F73-B72E-7651484EA3D7}
 		{8361FB49-F380-42C7-87D7-B857DB839FF8} = {070935BD-9051-4A0A-869F-F5179FF7E103}
 		{D138F9D0-9A9D-4541-A3C2-7E8E98C24683} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
+		{438668FB-3A67-4D06-A9DB-D7338158EB07} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A8F1CB-7E1D-4C00-813F-5E207BF68C9B}
