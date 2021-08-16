@@ -119,6 +119,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№2 average temperature", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№3 weight of blocks", "yellow\1 week\№3 weight of blocks\№3 weight of blocks.vcxproj", "{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№4 database of regions", "yellow\1 week\№4 database of regions\№4 database of regions.vcxproj", "{1412B4FE-C386-4CB4-B60A-9444EAA850C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -535,6 +537,14 @@ Global
 		{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C}.Release|x64.Build.0 = Release|x64
 		{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C}.Release|x86.ActiveCfg = Release|Win32
 		{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C}.Release|x86.Build.0 = Release|Win32
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Debug|x64.ActiveCfg = Debug|x64
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Debug|x64.Build.0 = Debug|x64
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Debug|x86.ActiveCfg = Debug|Win32
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Debug|x86.Build.0 = Debug|Win32
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Release|x64.ActiveCfg = Release|x64
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Release|x64.Build.0 = Release|x64
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Release|x86.ActiveCfg = Release|Win32
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -596,6 +606,7 @@ Global
 		{D138F9D0-9A9D-4541-A3C2-7E8E98C24683} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 		{438668FB-3A67-4D06-A9DB-D7338158EB07} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 		{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
+		{1412B4FE-C386-4CB4-B60A-9444EAA850C4} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A8F1CB-7E1D-4C00-813F-5E207BF68C9B}
