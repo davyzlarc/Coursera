@@ -1,10 +1,10 @@
 #include <map>
 
 enum class TaskStatus {
-	NEW,          // новая
-	IN_PROGRESS,  // в разработке
-	TESTING,      // на тестировании
-	DONE          // завершена
+	NEW,          // РЅРѕРІР°СЏ
+	IN_PROGRESS,  // РІ СЂР°Р·СЂР°Р±РѕС‚РєРµ
+	TESTING,      // РЅР° С‚РµСЃС‚РёСЂРѕРІР°РЅРёРё
+	DONE          // Р·Р°РІРµСЂС€РµРЅР°
 };
 
 using namespace std;
