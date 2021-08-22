@@ -123,6 +123,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№4 database of regions", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№5 task tracker", "yellow\1 week\№5 task tracker\№5 task tracker.vcxproj", "{D3EC777C-9545-489A-958F-3E59C9821BFA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№6 all squared", "yellow\1 week\№6 all squared\№6 all squared.vcxproj", "{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -555,6 +557,14 @@ Global
 		{D3EC777C-9545-489A-958F-3E59C9821BFA}.Release|x64.Build.0 = Release|x64
 		{D3EC777C-9545-489A-958F-3E59C9821BFA}.Release|x86.ActiveCfg = Release|Win32
 		{D3EC777C-9545-489A-958F-3E59C9821BFA}.Release|x86.Build.0 = Release|Win32
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Debug|x64.ActiveCfg = Debug|x64
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Debug|x64.Build.0 = Debug|x64
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Debug|x86.ActiveCfg = Debug|Win32
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Debug|x86.Build.0 = Debug|Win32
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Release|x64.ActiveCfg = Release|x64
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Release|x64.Build.0 = Release|x64
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Release|x86.ActiveCfg = Release|Win32
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -618,6 +628,7 @@ Global
 		{DBD4FAC9-A0F2-4081-99FA-07084E7BEC8C} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 		{1412B4FE-C386-4CB4-B60A-9444EAA850C4} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 		{D3EC777C-9545-489A-958F-3E59C9821BFA} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
+		{4DA4AAA1-EA40-475F-B4B2-F2C64EF1305E} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A8F1CB-7E1D-4C00-813F-5E207BF68C9B}
