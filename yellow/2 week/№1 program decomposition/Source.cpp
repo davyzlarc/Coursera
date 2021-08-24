@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main() {
+int source_main() {
     int q;
     cin >> q;
 
