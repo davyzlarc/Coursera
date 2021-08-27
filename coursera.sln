@@ -131,6 +131,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 week", "2 week", "{D1157B
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№1 program decomposition", "yellow\2 week\№1 program decomposition\№1 program decomposition.vcxproj", "{EF4752B4-AB2B-4AD4-8B34-D4D197C02F7D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "№2 tests for function GetDistinctRealRootCount", "yellow\2 week\№2 tests for function GetDistinctRealRootCount\№2 tests for function GetDistinctRealRootCount.vcxproj", "{51D5B810-0851-453A-A4F9-93C255E92DFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -587,6 +589,14 @@ Global
 		{EF4752B4-AB2B-4AD4-8B34-D4D197C02F7D}.Release|x64.Build.0 = Release|x64
 		{EF4752B4-AB2B-4AD4-8B34-D4D197C02F7D}.Release|x86.ActiveCfg = Release|Win32
 		{EF4752B4-AB2B-4AD4-8B34-D4D197C02F7D}.Release|x86.Build.0 = Release|Win32
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Debug|x64.ActiveCfg = Debug|x64
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Debug|x64.Build.0 = Debug|x64
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Debug|x86.ActiveCfg = Debug|Win32
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Debug|x86.Build.0 = Debug|Win32
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Release|x64.ActiveCfg = Release|x64
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Release|x64.Build.0 = Release|x64
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Release|x86.ActiveCfg = Release|Win32
+		{51D5B810-0851-453A-A4F9-93C255E92DFA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -654,6 +664,7 @@ Global
 		{DC59D9DA-E23F-4283-9D87-BFC374B18668} = {8361FB49-F380-42C7-87D7-B857DB839FF8}
 		{D1157BD8-92A1-467C-9E82-3393AC4674C4} = {070935BD-9051-4A0A-869F-F5179FF7E103}
 		{EF4752B4-AB2B-4AD4-8B34-D4D197C02F7D} = {D1157BD8-92A1-467C-9E82-3393AC4674C4}
+		{51D5B810-0851-453A-A4F9-93C255E92DFA} = {D1157BD8-92A1-467C-9E82-3393AC4674C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A8F1CB-7E1D-4C00-813F-5E207BF68C9B}
