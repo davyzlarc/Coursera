@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -96,14 +97,64 @@ private:
 };
 
 int GetDistinctRealRootCount(double a, double b, double c) {
-    // Вы можете вставлять сюда различные реализации функции,
-    // чтобы проверить, что ваши тесты пропускают корректный код
-    // и ловят некорректный
+    int result=0;
+    if (a != 0) {
+        double d = sqrt(b * b - 4 * a * c);
+        if (d > 0) {
+            result= 2;
+        }
+        else {
+            if (d == 0) {
+                result= 1;
+            }
+        }
+    }
+    else {
+        if (b != 0) {
+            result=1;
+        }
+    }
+    return result;
 }
 
-int main() {
+// a=0
+void Test1(){
+    AssertEqual(GetDistinctRealRootCount(0, 1, 2), 1, "a=0");
+}
+
+// a=0, b=0
+void Test2() {
+    AssertEqual(GetDistinctRealRootCount(0, 0, 2), 0, "a=0, b=0");
+}
+
+// D>0
+void Test3() {
+    AssertEqual(GetDistinctRealRootCount(2, 4, 1), 2, "D>0");
+}
+
+// D=0
+void Test4() {
+    AssertEqual(GetDistinctRealRootCount(2, 4, 2), 1, "D=0");
+}
+
+// D<0
+void Test5() {
+    AssertEqual(GetDistinctRealRootCount(2, 4, 10), 0, "D<0");
+}
+
+void Test() 
+{
+
     TestRunner runner;
-    // добавьте сюда свои тесты
+    runner.RunTest(Test1, "a=0");
+    runner.RunTest(Test2, "a=0, b=0");
+    runner.RunTest(Test3, "D>0");
+    runner.RunTest(Test4, "D=0");
+    runner.RunTest(Test5, "D<0");
+ 
+}
+int main() {
+    Test();
     return 0;
 }
 
