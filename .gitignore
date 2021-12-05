@@ -341,5 +341,6 @@ healthchecksdb
 
 # Manual
 *.vcxproj
-*.vcxprog.filters
+*.filters
 *.sln
+.vscode/
