@@ -344,3 +344,5 @@ healthchecksdb
 *.filters
 *.sln
 .vscode/
+main
+!main.cpp
