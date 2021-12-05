@@ -346,3 +346,7 @@ healthchecksdb
 .vscode/
 main
 !main.cpp
+main_1
+!main_1.cpp
+main_2
+!main_2.cpp
