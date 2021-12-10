@@ -101,7 +101,7 @@ int GetDistinctRealRootCount(double a, double b, double c) {
     // и ловят некорректный
 }
 
-int main() {
+int main1() {
     TestRunner runner;
     // добавьте сюда свои тесты
     return 0;
