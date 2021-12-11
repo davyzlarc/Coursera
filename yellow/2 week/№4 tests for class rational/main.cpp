@@ -43,239 +43,239 @@ using namespace std;
 
 template <class T>
 ostream& operator << (ostream& os, const vector<T>& s) {
-    os << "{";
-    bool first = true;
-    for (const auto& x : s) {
-        if (!first) {
-            os << ", ";
-        }
-        first = false;
-        os << x;
-    }
-    return os << "}";
+	os << "{";
+	bool first = true;
+	for (const auto& x : s) {
+		if (!first) {
+			os << ", ";
+		}
+		first = false;
+		os << x;
+	}
+	return os << "}";
 }
 
 template <class T>
 ostream& operator << (ostream& os, const set<T>& s) {
-    os << "{";
-    bool first = true;
-    for (const auto& x : s) {
-        if (!first) {
-            os << ", ";
-        }
-        first = false;
-        os << x;
-    }
-    return os << "}";
+	os << "{";
+	bool first = true;
+	for (const auto& x : s) {
+		if (!first) {
+			os << ", ";
+		}
+		first = false;
+		os << x;
+	}
+	return os << "}";
 }
 
 template <class K, class V>
 ostream& operator << (ostream& os, const map<K, V>& m) {
-    os << "{";
-    bool first = true;
-    for (const auto& kv : m) {
-        if (!first) {
-            os << ", ";
-        }
-        first = false;
-        os << kv.first << ": " << kv.second;
-    }
-    return os << "}";
+	os << "{";
+	bool first = true;
+	for (const auto& kv : m) {
+		if (!first) {
+			os << ", ";
+		}
+		first = false;
+		os << kv.first << ": " << kv.second;
+	}
+	return os << "}";
 }
 
 template<class T, class U>
 void AssertEqual(const T& t, const U& u, const string& hint = {}) {
-    if (t != u) {
-        ostringstream os;
-        os << "Assertion failed: " << t << " != " << u;
-        if (!hint.empty()) {
-            os << " hint: " << hint;
-        }
-        throw runtime_error(os.str());
-    }
+	if (t != u) {
+		ostringstream os;
+		os << "Assertion failed: " << t << " != " << u;
+		if (!hint.empty()) {
+			os << " hint: " << hint;
+		}
+		throw runtime_error(os.str());
+	}
 }
 
 void Assert(bool b, const string& hint) {
-    AssertEqual(b, true, hint);
+	AssertEqual(b, true, hint);
 }
 
 class TestRunner {
 public:
-    template <class TestFunc>
-    void RunTest(TestFunc func, const string& test_name) {
-        try {
-            func();
-            cerr << test_name << " OK" << endl;
-        }
-        catch (exception& e) {
-            ++fail_count;
-            cerr << test_name << " fail: " << e.what() << endl;
-        }
-        catch (...) {
-            ++fail_count;
-            cerr << "Unknown exception caught" << endl;
-        }
-    }
+	template <class TestFunc>
+	void RunTest(TestFunc func, const string& test_name) {
+		try {
+			func();
+			cerr << test_name << " OK" << endl;
+		}
+		catch (exception& e) {
+			++fail_count;
+			cerr << test_name << " fail: " << e.what() << endl;
+		}
+		catch (...) {
+			++fail_count;
+			cerr << "Unknown exception caught" << endl;
+		}
+	}
 
-    ~TestRunner() {
-        if (fail_count > 0) {
-            cerr << fail_count << " unit tests failed. Terminate" << endl;
-            exit(1);
-        }
-    }
+	~TestRunner() {
+		if (fail_count > 0) {
+			cerr << fail_count << " unit tests failed. Terminate" << endl;
+			exit(1);
+		}
+	}
 
 private:
-    int fail_count = 0;
+	int fail_count = 0;
 };
 
 class Rational
 {
 public:
-    Rational()
-    {
-        p = 0;
-        q = 1;
-    }
+	Rational()
+	{
+		p = 0;
+		q = 1;
+	}
 
-    Rational(int numerator, int denominator)
-    {
-        p = numerator;
-        q = denominator;
+	Rational(int numerator, int denominator)
+	{
+		p = numerator;
+		q = denominator;
 
-        if (p == 0)
-            q = 1;
-        else
-        {
-            if (q < 0)
-            {
-                p *= -1;
-                q *= -1;
-            }
-            int a = gcd(p, q);
-            if (a != 1)
-            {
-                p /= a;
-                q /= a;
-            }
-        }
-    }
+		if (p == 0)
+			q = 1;
+		else
+		{
+			if (q < 0)
+			{
+				p *= -1;
+				q *= -1;
+			}
+			int a = gcd(p, q);
+			if (a != 1)
+			{
+				p /= a;
+				q /= a;
+			}
+		}
+	}
 
-    int Numerator() const
-    {
-        return p;
-    }
+	int Numerator() const
+	{
+		return p;
+	}
 
-    int Denominator() const
-    {
-        return q;
-    }
+	int Denominator() const
+	{
+		return q;
+	}
 
 private:
-    int p,
-        q;
+	int p,
+		q;
 };
 
 bool operator==(const Rational& lhs, const Rational& rhs)
 {
-    if (lhs.Denominator() == rhs.Denominator() && lhs.Numerator() == rhs.Numerator())
-        return true;
-    else
-        return false;
+	if (lhs.Denominator() == rhs.Denominator() && lhs.Numerator() == rhs.Numerator())
+		return true;
+	else
+		return false;
 }
 
 Rational operator+(const Rational& lhs, const Rational& rhs)
 {
-    return Rational(lhs.Numerator() * rhs.Denominator() + rhs.Numerator() * lhs.Denominator(),
-        lhs.Denominator() * rhs.Denominator());
+	return Rational(lhs.Numerator() * rhs.Denominator() + rhs.Numerator() * lhs.Denominator(),
+		lhs.Denominator() * rhs.Denominator());
 }
 
 Rational operator-(const Rational& lhs, const Rational& rhs)
 {
-    return Rational(lhs.Numerator() * rhs.Denominator() - rhs.Numerator() * lhs.Denominator(),
-        lhs.Denominator() * rhs.Denominator());
+	return Rational(lhs.Numerator() * rhs.Denominator() - rhs.Numerator() * lhs.Denominator(),
+		lhs.Denominator() * rhs.Denominator());
 }
 
 Rational operator*(const Rational& lhs, const Rational& rhs)
 {
-    return Rational(lhs.Numerator() * rhs.Numerator(), lhs.Denominator() * rhs.Denominator());
+	return Rational(lhs.Numerator() * rhs.Numerator(), lhs.Denominator() * rhs.Denominator());
 }
 
 Rational operator/(const Rational& lhs, const Rational& rhs)
 {
-    return Rational(lhs.Numerator() * rhs.Denominator(), lhs.Denominator() * rhs.Numerator());
+	return Rational(lhs.Numerator() * rhs.Denominator(), lhs.Denominator() * rhs.Numerator());
 }
 
 istream& operator>>(istream& stream, Rational& rational)
 {
-    int p = 0, q = 1;
-    char ch;
-    if (!(stream >> p) || !(stream >> ch) || !(stream >> q) || (ch != '/'))
-        return stream;
-    else
-    {
-        rational = Rational(p, q);
-        return stream;
-    }
+	int p = 0, q = 1;
+	char ch;
+	if (!(stream >> p) || !(stream >> ch) || !(stream >> q) || (ch != '/'))
+		return stream;
+	else
+	{
+		rational = Rational(p, q);
+		return stream;
+	}
 }
 
 ostream& operator<<(ostream& stream, const Rational& rational)
 {
-    stream << rational.Numerator() << "/" << rational.Denominator();
-    return stream;
+	stream << rational.Numerator() << "/" << rational.Denominator();
+	return stream;
 }
 
 bool operator<(const Rational& lhs, const Rational& rhs)
 {
-    return lhs.Numerator() * rhs.Denominator() < rhs.Numerator() * lhs.Denominator();
+	return lhs.Numerator() * rhs.Denominator() < rhs.Numerator() * lhs.Denominator();
 }
 
 void TestDefaultConstructor()
 {
-    Rational r;
+	Rational r;
 
-    AssertEqual(r.Numerator(), 0, "Wrong numenator");
-    AssertEqual(r.Denominator(), 1, "Wrong denominator");
+	AssertEqual(r.Numerator(), 0, "Wrong numenator");
+	AssertEqual(r.Denominator(), 1, "Wrong denominator");
 }
 
 void TestReduction()
 {
-    Rational r(12,24);
+	Rational r(12, 24);
 
-    AssertEqual(r.Numerator(), 1, "Wrong numenator");
-    AssertEqual(r.Denominator(), 2, "Wrong denominator");
+	AssertEqual(r.Numerator(), 1, "Wrong numenator");
+	AssertEqual(r.Denominator(), 2, "Wrong denominator");
 }
 
 void TestNegative()
 {
-    Rational r(5, -7);
+	Rational r(5, -7);
 
-    AssertEqual(r.Numerator(), -5, "Wrong numenator");
-    AssertEqual(r.Denominator(), 7, "Wrong denominator");
+	AssertEqual(r.Numerator(), -5, "Wrong numenator");
+	AssertEqual(r.Denominator(), 7, "Wrong denominator");
 }
 
 void TestPositive()
 {
-    Rational r(-5, -7);
+	Rational r(-5, -7);
 
-    AssertEqual(r.Numerator(), 5, "Wrong numenator");
-    AssertEqual(r.Denominator(), 7, "Wrong denominator");
+	AssertEqual(r.Numerator(), 5, "Wrong numenator");
+	AssertEqual(r.Denominator(), 7, "Wrong denominator");
 }
 
 void TestZero()
 {
-    Rational r(0, 7);
+	Rational r(0, 7);
 
-    AssertEqual(r.Numerator(), 0, "Wrong numenator");
-    AssertEqual(r.Denominator(), 1, "Wrong denominator");
+	AssertEqual(r.Numerator(), 0, "Wrong numenator");
+	AssertEqual(r.Denominator(), 1, "Wrong denominator");
 }
 
 int main() {
-    TestRunner runner;
-    runner.RunTest(TestDefaultConstructor,"Test of default constructor (0/1)");
-    runner.RunTest(TestReduction, "Test of reduction of fraction (12/24)");
-    runner.RunTest(TestNegative, "Test of negative fraction (5/-7)");
-    runner.RunTest(TestPositive, "Test of positive fraction (-5/-7)");
-    runner.RunTest(TestZero, "Test of zero fraction (0/7)");
+	TestRunner runner;
+	runner.RunTest(TestDefaultConstructor, "Test of default constructor (0/1)");
+	runner.RunTest(TestReduction, "Test of reduction of fraction (12/24)");
+	runner.RunTest(TestNegative, "Test of negative fraction (5/-7)");
+	runner.RunTest(TestPositive, "Test of positive fraction (-5/-7)");
+	runner.RunTest(TestZero, "Test of zero fraction (0/7)");
 
-    return 0;
+	return 0;
 }
