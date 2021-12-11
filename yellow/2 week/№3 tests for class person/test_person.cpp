@@ -108,7 +108,7 @@ public:
     }
 };
 
-int main1() {
+int main() {
     TestRunner runner;
     // добавьте сюда свои тесты
     return 0;
